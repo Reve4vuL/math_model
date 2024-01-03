@@ -1,0 +1,16 @@
+clc;
+clear;
+n=5;
+m=4;
+q=load('a1_3.txt')
+x=[q(:,1:5)];
+y=[x(:,2)];
+x1=[x(:,3)];
+x2=[x(:,4)];
+x3=[x(:,5)];
+
+X=[ones(n,1),x1,x2,x3];
+[b,bint,r,rint,s] = regress(y,X);
+s2 = sum(r.^2)/(n-m-1);
+b,bint,s,s2
+rcoplot(r,rint)
